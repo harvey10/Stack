@@ -27,6 +27,8 @@ void Stack::push(int a) {
   try {
     if (isFull())
       throw a;
+    if (!cin)
+      throw;
     else {
       stackSize++;
       stackArray[stackSize] = a;
@@ -37,6 +39,8 @@ void Stack::push(int a) {
   }
   catch(...) {
     cout << a << " is not an acceptable input. Try again." << endl;
+    cin.clear();
+    cin.ignore(100, '\n');
   }
 }
 
